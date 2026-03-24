@@ -8,4 +8,8 @@ import { Component } from '@angular/core';
 })
 export class Product {
 
+  aleatorio = Math.floor(Math.random() * 200)
+
+  img=`https://picsum.photos/id/${this.aleatorio}/640/640`
+
 }
