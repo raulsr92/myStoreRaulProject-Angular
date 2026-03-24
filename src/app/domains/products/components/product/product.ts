@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-product',
@@ -8,8 +8,10 @@ import { Component } from '@angular/core';
 })
 export class Product {
 
-  aleatorio = Math.floor(Math.random() * 200)
+  @Input({required:true}) img: string = ' '; // propiedad que recibirá la imagen desde el padre
 
-  img=`https://picsum.photos/id/${this.aleatorio}/640/640`
+  @Input({required:true}) price: number = 0;
+
+  @Input({required:true}) title: string = ' ';
 
 }
