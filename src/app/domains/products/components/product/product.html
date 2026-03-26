@@ -1,9 +1,39 @@
 
-<div class="card" style="width: 18rem;">
-  <img [src]="img" class="card-img-top" alt="image">
-  <div class="card-body">
-    <h5 class="card-title">{{title}}</h5>
-    <p class="card-text"> {{price}}</p>
-    <a href="#" class="btn btn-primary">Ver más</a>
+<div class="bg-[#EEEEEE]">
+  <a href="">
+    <img [src]="img" class="card-img-top" alt="image">
+  </a>
+  <div class="py-3 px-1">
+    <a href="">
+      <p class="m-0">{{title}}</p>
+    </a>
+    <div class="flex justify-between ">
+      <div class="flex items-center gap-x-1.5 ">
+          <p class="m-0">S/ {{price}}</p>
+          <p class="m-0" >S/ {{price}}</p>
+          <p class="m-0"> -42% </p>
+      </div>
+
+      <div>
+        <a (click)="addToCartHandler()">
+          <i class="fa-solid fa-cart-plus"></i>
+        </a>
+      </div>
+    </div>
+    <div>
+      <div>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+      </div>
+      <p>78</p>
+    </div>
   </div>
 </div>
+
+
+
+
+
