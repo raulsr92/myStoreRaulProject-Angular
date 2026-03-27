@@ -1,34 +1,34 @@
 
-<div class="bg-[#EEEEEE]">
-  <a href="">
-    <img [src]="img" class="card-img-top" alt="image">
+<div class="bg-[#EEEEEE] ">
+  <a href="" class="block overflow-hidden" >
+    <img [src]="img" class="card-img-top hover:scale-125 transition delay-300" alt="image">
   </a>
-  <div class="py-3 px-1">
-    <a href="">
-      <p class="m-0">{{title}}</p>
+  <div class="flex flex-col gap-y-2 py-3 px-1">
+    <a class="no-underline!" href="">
+      <p class="m-0 text-[#555555] font-semibold">{{title}}</p>
     </a>
     <div class="flex justify-between ">
       <div class="flex items-center gap-x-1.5 ">
-          <p class="m-0">S/ {{price}}</p>
-          <p class="m-0" >S/ {{price}}</p>
-          <p class="m-0"> -42% </p>
+          <p class="m-0 text-[25px] font-semibold"> <span class="text-[18px] font-normal">S/</span> {{price}}</p>
+          <p class="m-0 text-[#555555] line-through" > {{price}}</p>
+          <p class="m-0 text-[#fb7701] font-medium border-[1px] border-[#fb7701] text-[14px] px-[6px] rounded-[8px]"> -42% </p>
       </div>
 
       <div>
-        <a (click)="addToCartHandler()">
-          <i class="fa-solid fa-cart-plus"></i>
+        <a class=" flex border-[2px] border-solid rounded-full border-black! no-underline! px-3 py-2 hover:border-amber-600! group" href=""  (click)="addToCartHandler()">
+          <i class="fa-solid fa-cart-plus text-black text-[20px] group-hover:text-amber-600! "></i>
         </a>
       </div>
     </div>
-    <div>
-      <div>
+    <div class="flex gap-x-2 items-center">
+      <div class="text-[#fb7701]">
         <i class="fa-solid fa-star"></i>
         <i class="fa-solid fa-star"></i>
         <i class="fa-solid fa-star"></i>
         <i class="fa-solid fa-star"></i>
         <i class="fa-solid fa-star"></i>
       </div>
-      <p>78</p>
+      <p class="m-0 text-[15px] text-[#555555] ">78</p>
     </div>
   </div>
 </div>
