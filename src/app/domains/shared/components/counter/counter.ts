@@ -16,6 +16,7 @@ export class Counter {
       console.log('Se ejecuta constructor de componente COUNTER')
       console.log('-'.repeat(10))
     }
+
     ngOnChanges(changes: SimpleChanges){
 
       // before and during render
@@ -23,7 +24,20 @@ export class Counter {
       console.log('-'.repeat(10))
       console.log(changes)
 
+      const duration = changes['duration']
+
+      console.log(duration)
+
+      if (duration && duration.currentValue !== duration.previousValue) {
+
+        this.doDomething()
+
+      } else{
+        console.log("No cambió la duración")
+      }
+
     }
+
     ngOnInit(){
 
       // after render
@@ -44,5 +58,11 @@ export class Counter {
 
     ngOnDestroy(){
       console.log('Se ejecuta ngOnDestroy de componente COUNTER')
+    }
+
+    doDomething(){
+
+      console.log('Cambió la duración y es diferente')
+
     }
 }
