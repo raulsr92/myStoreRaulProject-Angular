@@ -15,6 +15,8 @@
 
 </div>
 <p>
-  <app-counter [duration]="duration()" [message]="message()" ></app-counter>
+  @if (duration()>0) {
+    <app-counter [duration]="duration()" [message]="message()" ></app-counter>
+  }
 </p>
 

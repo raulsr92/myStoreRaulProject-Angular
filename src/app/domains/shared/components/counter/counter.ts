@@ -7,7 +7,6 @@ import { Component, Input, SimpleChanges } from '@angular/core';
   styleUrl: './counter.css',
 })
 export class Counter {
-
     @Input({required:true}) duration: number = 0;
     @Input({required: true}) message: string ='';
 
@@ -17,7 +16,6 @@ export class Counter {
       console.log('Se ejecuta constructor de componente COUNTER')
       console.log('-'.repeat(10))
     }
-
     ngOnChanges(changes: SimpleChanges){
 
       // before and during render
@@ -25,5 +23,26 @@ export class Counter {
       console.log('-'.repeat(10))
       console.log(changes)
 
+    }
+    ngOnInit(){
+
+      // after render
+      //Corre una sola vez
+
+      console.log('Se ejecuta ngOnInit de componente COUNTER')
+      console.log('-'.repeat(10))
+
+      console.log('Duration =>', this.duration)
+      console.log('Message =>', this.message)
+
+    }
+    ngAfterViewInit(){
+      console.log('Se ejecuta ngAfterViewInit de componente COUNTER')
+      console.log('-'.repeat(10))
+
+    }
+
+    ngOnDestroy(){
+      console.log('Se ejecuta ngOnDestroy de componente COUNTER')
     }
 }

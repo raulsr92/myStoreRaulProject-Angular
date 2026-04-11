@@ -9,7 +9,7 @@ import { Counter } from '../../../shared/components/counter/counter';
 })
 export class About {
 
-    duration = signal(1000)
+    duration = signal(1)
     message = signal('Hola')
 
 
