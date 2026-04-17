@@ -2,4 +2,15 @@
   <div #wave>
 
   </div>
+  <div class="bg-amber-100 pl-3 py-2 flex justify-center">
+    <button (click)="playPause()" >
+
+      @if (isPlaying()) {
+        <i class="fa-solid fa-pause text-3xl"></i>
+      } @else {
+        <i class="fa-solid fa-play text-3xl"></i>
+      }
+
+    </button>
+  </div>
 </div>
