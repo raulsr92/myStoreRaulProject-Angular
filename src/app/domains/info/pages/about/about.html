@@ -1,22 +1,18 @@
 <div>
-  <input
-    type="number"
-    [value]="duration()"
-    (input)="changeDuration($event)"
-    name=""
-    id="">
+  <h1 class="bg-black text-white py-1.5 pl-6 mt-7.5!">About</h1>
+  <p class="p-6" > Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi ipsam ipsa dignissimos voluptatibus explicabo asperiores sequi assumenda. Fuga quo repellat culpa facere sint, dolorum tenetur dolore modi necessitatibus deserunt. Quidem!Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi ipsam ipsa dignissimos voluptatibus explicabo asperiores sequi assumenda. Fuga quo repellat culpa facere sint, dolorum tenetur dolore modi necessitatibus deserunt. Quidem!Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi ipsam ipsa dignissimos voluptatibus explicabo asperiores sequi assumenda. Fuga quo repellat culpa facere sint, dolorum tenetur dolore modi necessitatibus deserunt. Quidem!Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi ipsam ipsa dignissimos voluptatibus explicabo asperiores sequi assumenda. Fuga quo repellat culpa facere sint, dolorum tenetur dolore modi necessitatibus deserunt. Quidem!Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi ipsam ipsa dignissimos voluptatibus explicabo asperiores sequi assumenda. Fuga quo repellat culpa facere sint, dolorum tenetur dolore modi necessitatibus deserunt. Quidem!Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi ipsam ipsa dignissimos voluptatibus explicabo asperiores sequi assumenda. Fuga quo repellat culpa facere sint, dolorum tenetur dolore modi necessitatibus deserunt. Quidem! </p>
+  <p class="pl-6">
+    @if (duration()>0) {
+      <app-counter [duration]="duration()" [message]="message()" ></app-counter>
+    }
+  </p>
 
-  <input
-    type="text"
-    [value]="message()"
-    (input)="changeMessage($event)"
-    name=""
-    id="">
+  <div class="w-[40%] pl-6">
 
+    <app-wave-audio [audioUrl]="'assets/audioprueba.mp3'" />
+
+  </div>
 </div>
-<p>
-  @if (duration()>0) {
-    <app-counter [duration]="duration()" [message]="message()" ></app-counter>
-  }
-</p>
+
+
 
