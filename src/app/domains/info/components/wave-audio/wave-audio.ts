@@ -31,21 +31,14 @@ export class WaveAudio {
           url: this.audioUrl(),
 
       })
+
+      this.ws.on("play", ()=> this.isPlaying.set(true))
+      this.ws.on("pause", ()=> this.isPlaying.set(false))
     }
 
     playPause(){
-      if(this.ws.isPlaying()){
 
-        this.ws.pause()
-
-        this.isPlaying.set(false)
-
-      } else{
-        this.ws.play()
-
-        this.isPlaying.set(true)
-
-      }
+      this.ws.playPause()
 
       //console.log(this.ws.isPlaying())
 
