@@ -6,7 +6,7 @@
 
       @for( product of products();track product.id ){
 
-        <app-product [img]="product.image" [price]="product.price" [title]="product.title" (addToCart)="unpackingMessageFromChild($event)"></app-product>
+        <app-product [products]="product" (addToCart)="unpackingMessageFromChild($event)"></app-product>
 
       }
 

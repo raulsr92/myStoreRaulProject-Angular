@@ -1,16 +1,17 @@
 
 <div class="bg-[#EEEEEE] ">
   <a href="" class="block overflow-hidden" >
-    <img [src]="img" class="card-img-top hover:scale-125 transition delay-300" alt="image">
+    <img [src]="products().image" class="card-img-top hover:scale-125 transition delay-300" alt="image">
   </a>
   <div class="flex flex-col gap-y-2 py-3 px-1">
     <a class="no-underline!" href="">
-      <p class="m-0 text-[#555555] font-semibold">{{title}}</p>
+      <p class="m-0 text-[#555555] font-semibold">{{products().title}}</p>
+      <small class="m-0 text-[#555555] text-[10px]!">Agregado el {{ products().creationAt }}</small>
     </a>
     <div class="flex justify-between ">
       <div class="flex items-center gap-x-1.5 ">
-          <p class="m-0 text-[25px] font-semibold"> <span class="text-[18px] font-normal">S/</span> {{price}}</p>
-          <p class="m-0 text-[#555555] line-through" > {{price}}</p>
+          <p class="m-0 text-[25px] font-semibold"> <span class="text-[18px] font-normal">S/</span> {{ products().price }}</p>
+          <p class="m-0 text-[#555555] line-through" > {{ products().price }}</p>
           <p class="m-0 text-[#fb7701] font-medium border-[1px] border-[#fb7701] text-[14px] px-[6px] rounded-[8px]"> -42% </p>
       </div>
 

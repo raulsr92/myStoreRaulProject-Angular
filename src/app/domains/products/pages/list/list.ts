@@ -22,31 +22,37 @@ export class List {
         id: Date.now(),
         title: 'Producto 1',
         price: 100,
-        image: `https://picsum.photos/id/${this.aleatorio}/640/640`
+        image: `https://picsum.photos/id/${this.aleatorio}/640/640`,
+        creationAt: new Date().toLocaleString()
       },
       {
         id: Date.now(),
         title: 'Producto 2',
         price: 250,
-        image: `https://picsum.photos/id/${this.aleatorio}/640/640`
+        image: `https://picsum.photos/id/${this.aleatorio}/640/640`,
+        creationAt: new Date().toLocaleString()
       },
       {
         id: Date.now(),
         title: 'Producto 3',
         price: 450,
-        image: `https://picsum.photos/id/${this.aleatorio}/640/640`
+        image: `https://picsum.photos/id/${this.aleatorio}/640/640`,
+        creationAt: new Date().toLocaleString()
       },
       {
         id: Date.now(),
         title: 'Producto 4',
         price: 550,
-        image: `https://picsum.photos/id/${this.aleatorio}/640/640`
+        image: `https://picsum.photos/id/${this.aleatorio}/640/640`,
+        creationAt: new Date().toLocaleString()
       },
       {
         id: Date.now(),
         title: 'Producto 5',
         price: 1290,
-        image: `https://picsum.photos/id/${this.aleatorio}/640/640`
+        image: `https://picsum.photos/id/${this.aleatorio}/640/640`,
+        creationAt: new Date().toLocaleString()
+
       }
     ]
 
