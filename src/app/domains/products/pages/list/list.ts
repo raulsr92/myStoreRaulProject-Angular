@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import {Product} from './../../components/product/product';
+import type { ProductInterface } from '../../../shared/models/product.model';
 
 @Component({
   selector: 'app-list',
@@ -10,8 +11,48 @@ import {Product} from './../../components/product/product';
 export class List {
 
   aleatorio = Math.floor(Math.random()*200)
-
   img = `https://picsum.photos/id/${this.aleatorio}/640/640`
+
+  products = signal<ProductInterface[]>([])
+
+  constructor(){
+
+    const initProducts:ProductInterface[] =[
+      {
+        id: Date.now(),
+        title: 'Producto 1',
+        price: 100,
+        image: `https://picsum.photos/id/${this.aleatorio}/640/640`
+      },
+      {
+        id: Date.now(),
+        title: 'Producto 2',
+        price: 250,
+        image: `https://picsum.photos/id/${this.aleatorio}/640/640`
+      },
+      {
+        id: Date.now(),
+        title: 'Producto 3',
+        price: 450,
+        image: `https://picsum.photos/id/${this.aleatorio}/640/640`
+      },
+      {
+        id: Date.now(),
+        title: 'Producto 4',
+        price: 550,
+        image: `https://picsum.photos/id/${this.aleatorio}/640/640`
+      },
+      {
+        id: Date.now(),
+        title: 'Producto 5',
+        price: 1290,
+        image: `https://picsum.photos/id/${this.aleatorio}/640/640`
+      }
+    ]
+
+    //Actualizar signal de productos
+      this.products.set(initProducts)
+  }
 
   unpackingMessageFromChild(event: string){
 

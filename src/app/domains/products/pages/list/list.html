@@ -1,16 +1,15 @@
  <section class="flex flex-col items-center gap-y-7.5 mt-[60px] mb-[60px]">
 
-    <p class="text-amber-700 text-4xl" >Mis productos</p>
+    <p class="text-amber-700 text-4xl" >Mis productos </p>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3  xl:grid-cols-4 gap-y-2.5 gap-x-3.5 w-[75%]">
-      <app-product [img]="img" [price]="100" [title]="'Producto 1'" (addToCart)="unpackingMessageFromChild($event)"></app-product>
-      <app-product [img]="img" [price]="200" [title]="'Producto 2'" (addToCart)="unpackingMessageFromChild($event)" ></app-product>
-      <app-product [img]="img" [price]="300" [title]="'Producto 3'" (addToCart)="unpackingMessageFromChild($event)"></app-product>
-      <app-product [img]="img" [price]="110" [title]="'Producto 4'" (addToCart)="unpackingMessageFromChild($event)"></app-product>
-      <app-product [img]="img" [price]="120" [title]="'Producto 5'" (addToCart)="unpackingMessageFromChild($event)"></app-product>
-      <app-product [img]="img" [price]="30" [title]="'Producto 6'" (addToCart)="unpackingMessageFromChild($event)"></app-product>
-      <app-product [img]="img" [price]="20" [title]="'Producto 7'" (addToCart)="unpackingMessageFromChild($event)"></app-product>
-      <app-product [img]="img" [price]="80" [title]="'Producto 8'" (addToCart)="unpackingMessageFromChild($event)"></app-product>
+
+      @for( product of products();track product.id ){
+
+        <app-product [img]="product.image" [price]="product.price" [title]="product.title" (addToCart)="unpackingMessageFromChild($event)"></app-product>
+
+      }
+
     </div>
  </section>
 
