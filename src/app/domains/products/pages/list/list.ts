@@ -16,41 +16,45 @@ export class List {
 
   products = signal<ProductInterface[]>([])
 
+  cart = signal<ProductInterface[]>([])
+
+
+
   constructor(){
 
     const initProducts:ProductInterface[] =[
       {
         id: Date.now(),
         title: 'Producto 1',
-        price: 100,
+        price: 100.00,
         image: `https://picsum.photos/id/${this.aleatorio}/640/640`,
         creationAt: new Date().toLocaleString()
       },
       {
         id: Date.now(),
         title: 'Producto 2',
-        price: 250,
+        price: 250.60,
         image: `https://picsum.photos/id/${this.aleatorio}/640/640`,
         creationAt: new Date().toLocaleString()
       },
       {
         id: Date.now(),
         title: 'Producto 3',
-        price: 450,
+        price: 450.90,
         image: `https://picsum.photos/id/${this.aleatorio}/640/640`,
         creationAt: new Date().toLocaleString()
       },
       {
         id: Date.now(),
         title: 'Producto 4',
-        price: 550,
+        price: 550.00,
         image: `https://picsum.photos/id/${this.aleatorio}/640/640`,
         creationAt: new Date().toLocaleString()
       },
       {
         id: Date.now(),
         title: 'Producto 5',
-        price: 1290,
+        price: 1290.99,
         image: `https://picsum.photos/id/${this.aleatorio}/640/640`,
         creationAt: new Date().toLocaleString()
 
@@ -61,10 +65,14 @@ export class List {
       this.products.set(initProducts)
   }
 
-  unpackingMessageFromChild(event: string){
+  addToCart(event: ProductInterface){
 
-    console.log('Estamos en el padre')
-    console.log(event)  //aqui recien escucha el mensaje -> lo desempaca y escucha lo de la linea 24 en product.ts
+    console.log('Vamos a agregar al carrito el siguiente producto:')
+    console.log(event)
+
+    this.cart.update((carrito)=> [...carrito,event])
+
+    console.log(this.cart())
   }
 
 }

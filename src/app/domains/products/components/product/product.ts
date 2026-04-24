@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output, input } from '@angular/core';
+import { Component, EventEmitter, Input, Output, input, output } from '@angular/core';
 import type { ProductInterface } from '../../../shared/models/product.model';
 
 @Component({
@@ -9,18 +9,19 @@ import type { ProductInterface } from '../../../shared/models/product.model';
 })
 export class Product {
 
-  products = input.required<ProductInterface>()
+  product = input.required<ProductInterface>()
 
 
-  @Output() addToCart = new EventEmitter<string>();  // Forma de declarar un output
-
+ // @Output() addToCart = new EventEmitter<string>();  // Forma de declarar un output
+  addToCart2 = output<ProductInterface>()
 
   addToCartHandler(){
     console.log('Click from child')
 
     //Enviar comunicación al padre
 
-    this.addToCart.emit(`Hola, este es un mesaje desde el hijo, soy el ${this.products().title}`) //Aqui se emite pero no se escucha auns
+    this.addToCart2.emit(this.product())
+
   }
 
 }

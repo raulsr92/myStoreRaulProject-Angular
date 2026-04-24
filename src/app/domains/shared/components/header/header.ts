@@ -1,4 +1,5 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, input} from '@angular/core';
+import type { ProductInterface } from '../../models/product.model';
 
 @Component({
   selector: 'app-header',
@@ -7,6 +8,10 @@ import { Component, signal } from '@angular/core';
   styleUrl: './header.css',
 })
 export class Header {
+
+  //input
+
+  cart = input.required<ProductInterface[]>()
 
   hideSideMenu = signal(true)
 

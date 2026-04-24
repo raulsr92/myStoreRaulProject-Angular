@@ -1,5 +1,5 @@
 <header >
-    <app-header/>
+    <app-header [cart]="cart()"  />
 </header>
 
 <div class="max-w-screen-xl mx-auto">
@@ -12,7 +12,7 @@
 
         @for( product of products();track product.id ){
 
-          <app-product [products]="product" (addToCart)="unpackingMessageFromChild($event)"></app-product>
+          <app-product [product]="product" (addToCart2)="addToCart($event)"></app-product>
 
         }
 
