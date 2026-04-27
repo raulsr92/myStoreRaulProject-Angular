@@ -1,9 +1,10 @@
 import { Component, signal, input, SimpleChanges} from '@angular/core';
 import type { ProductInterface } from '../../models/product.model';
+import { CurrencyPipe } from '@angular/common';
 
 @Component({
   selector: 'app-header',
-  imports: [],
+  imports: [CurrencyPipe],
   templateUrl: './header.html',
   styleUrl: './header.css',
 })
@@ -25,6 +26,29 @@ export class Header {
 
   }
 
+  calcTotal(){
+    return this.cart().reduce((acumulador, {price})=> acumulador+price, 0)
+  }
+
+
+  ngOnChanges(changes:SimpleChanges){
+
+    console.log(changes)
+
+    //Preguntamos si algo en el carrito cambió, porque puede haber más signals
+
+    if(changes['cart']){
+      this.totalPagar.set(this.calcTotal())
+    }
+
+  }
+
+
+
+
+
+
+  /*
   ngOnChanges(changes:SimpleChanges){
 
     console.log(changes)
@@ -36,6 +60,7 @@ export class Header {
       this.totalPagar.update( (valorPrev) => valorPrev + this.cart()[longitudCart-1].price)
     }
   }
+    */
 
 
 }

@@ -19,7 +19,6 @@ export class List {
   cart = signal<ProductInterface[]>([])
 
 
-
   constructor(){
 
     const initProducts:ProductInterface[] =[
