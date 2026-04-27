@@ -65,16 +65,16 @@
 
 <!--Menu lateral del carrito-->
 
-<div [class.translate-x-full]="hideSideMenu()" class="flex flex-col gap-y-4 fixed shadow-lg top-0 right-0 bg-red z-40 w-[650px] font-medium h-screen p-4 overflow-y-auto transition-transform bg-white" >
+<div [class.translate-x-full]="hideSideMenu()" class="flex flex-col gap-y-4 fixed shadow-lg top-0 right-0 bg-red z-40 w-[650px] font-medium h-screen pt-4 overflow-y-auto transition-transform bg-white" >
 
-  <div class="flex justify-between items-center">
+  <div class="flex justify-between items-center pl-[30px]">
     <p class="text-xl mb-0">Mi carrito de Compras (<span>{{cart().length}}</span>)</p>
     <button class="flex items-center justify-center" (click)="toogleSideMenu()">
       <i class="fa-solid fa-xmark text-2xl"></i>
     </button>
   </div>
 
-  <div class="flex flex-col gap-y-8">
+  <div class="flex flex-col gap-y-8 pl-[30px]">
     @for (product of cart(); track $index) {
 
       <div class="flex gap-x-[30px] border-gray-300 border-solid border px-3 py-4 justify-around items-start rounded-md">
@@ -94,4 +94,13 @@
     }
 
   </div>
+
+  <div class="flex flex-col gap-y-[15px] px-[30px] pt-[25px] pb-[40px] shadow-[0px_-4px_7px_1px_rgba(79,78,78,0.20)] sticky bottom-0 bg-white">
+      <div class="flex justify-between items-center">
+        <p class="font-bold text-[24px] mb-0">Total estimado <span class="font-normal text-[16px]">Incluyendo IGV</span></p>
+        <p class="mb-0 text font-bold text-[24px]"> S/ 620.20 </p>
+      </div>
+      <button class="bg-blue-950 text-white py-[10px] flex justify-center items-center gap-x-2"> <i class="fa-solid fa-lock"></i> PAGO SEGURO</button>
+  </div>
+
 </div>
