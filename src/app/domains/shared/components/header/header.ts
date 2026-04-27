@@ -1,4 +1,4 @@
-import { Component, signal, input} from '@angular/core';
+import { Component, signal, input, SimpleChanges} from '@angular/core';
 import type { ProductInterface } from '../../models/product.model';
 
 @Component({
@@ -13,6 +13,8 @@ export class Header {
 
   cart = input.required<ProductInterface[]>()
 
+  totalPagar = signal<number>(0)
+
   hideSideMenu = signal(true)
 
   toogleSideMenu(){
@@ -22,5 +24,18 @@ export class Header {
     this.hideSideMenu.update(prevState => !prevState)
 
   }
+
+  ngOnChanges(changes:SimpleChanges){
+
+    console.log(changes)
+
+    const longitudCart = this.cart().length
+    console.log(longitudCart)
+
+    if (this.cart().length>0) {
+      this.totalPagar.update( (valorPrev) => valorPrev + this.cart()[longitudCart-1].price)
+    }
+  }
+
 
 }
