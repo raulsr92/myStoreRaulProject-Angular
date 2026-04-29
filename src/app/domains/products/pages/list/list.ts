@@ -1,7 +1,8 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, inject } from '@angular/core';
 import {Product} from './../../components/product/product';
 import { Header } from '../../../shared/components/header/header';
 import type { ProductInterface } from '../../../shared/models/product.model';
+import { Cart } from '../../../shared/services/cart';
 
 @Component({
   selector: 'app-list',
@@ -16,7 +17,7 @@ export class List {
 
   products = signal<ProductInterface[]>([])
 
-  cart = signal<ProductInterface[]>([])
+  //cart = signal<ProductInterface[]>([])
 
 
   constructor(){
@@ -64,14 +65,16 @@ export class List {
       this.products.set(initProducts)
   }
 
-  addToCart(event: ProductInterface){
+  //inyectar servicio
 
-    console.log('Vamos a agregar al carrito el siguiente producto:')
-    console.log(event)
+    public cartService = inject(Cart)
 
-    this.cart.update((carrito)=> [...carrito,event])
 
-    console.log(this.cart())
+
+  addToCart(product: ProductInterface){
+
+    this.cartService.addToCart(product)
+
   }
 
 }

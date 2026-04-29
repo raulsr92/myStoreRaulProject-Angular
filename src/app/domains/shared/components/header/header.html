@@ -75,7 +75,7 @@
   </div>
 
   <div class="flex flex-col gap-y-8 pl-[30px]">
-    @for (product of cart(); track $index) {
+    @for (product of cart(); track product.id) {
 
       <div class="flex gap-x-[30px] border-gray-300 border-solid border px-3 py-4 justify-around items-start rounded-md">
         <img [src]="product.image" class="w-[100px] rounded-md" alt="">
@@ -98,7 +98,7 @@
   <div class="flex flex-col gap-y-[15px] px-[30px] pt-[25px] pb-[40px] shadow-[0px_-4px_7px_1px_rgba(79,78,78,0.20)] sticky bottom-0 bg-white">
       <div class="flex justify-between items-center">
         <p class="font-bold text-[24px] mb-0">Total estimado <span class="font-normal text-[16px]">Incluyendo IGV</span></p>
-        <p class="mb-0 text font-bold text-[24px]">  {{ totalPagar() | currency:'S/ '}} </p>
+        <p class="mb-0 text font-bold text-[24px]">  {{ total() | currency:'S/ '}} </p>
       </div>
       <button class="bg-blue-950 text-white py-[10px] flex justify-center items-center gap-x-2"> <i class="fa-solid fa-lock"></i> PAGO SEGURO</button>
   </div>

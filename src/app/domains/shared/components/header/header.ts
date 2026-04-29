@@ -1,6 +1,7 @@
-import { Component, signal, input, SimpleChanges} from '@angular/core';
+import { Component, signal, input, SimpleChanges, inject} from '@angular/core';
 import type { ProductInterface } from '../../models/product.model';
 import { CurrencyPipe } from '@angular/common';
+import { Cart } from '../../services/cart';
 
 @Component({
   selector: 'app-header',
@@ -10,43 +11,49 @@ import { CurrencyPipe } from '@angular/common';
 })
 export class Header {
 
-  //input
+  //input signal
 
-  cart = input.required<ProductInterface[]>()
+  //cart = input.required<ProductInterface[]>()
 
-  totalPagar = signal<number>(0)
+  //inyeccion de servicios
 
-  hideSideMenu = signal(true)
+    private cartService = inject(Cart)
 
-  toogleSideMenu(){
+  //del servicio
 
-    console.log("click en carrito")
+    cart = this.cartService.cart;
+    total = this.cartService.calcTotal
 
-    this.hideSideMenu.update(prevState => !prevState)
+  //signals
 
-  }
+    //totalPagar = signal<number>(0)
 
+    hideSideMenu = signal(true)
+
+    toogleSideMenu(){
+
+      console.log("click en carrito")
+
+      this.hideSideMenu.update(prevState => !prevState)
+
+    }
+
+
+ /*
   calcTotal(){
     return this.cart().reduce((acumulador, {price})=> acumulador+price, 0)
   }
 
-
   ngOnChanges(changes:SimpleChanges){
-
     console.log(changes)
 
     //Preguntamos si algo en el carrito cambió, porque puede haber más signals
 
     if(changes['cart']){
       this.totalPagar.set(this.calcTotal())
-    }
-
   }
 
-
-
-
-
+*/
 
   /*
   ngOnChanges(changes:SimpleChanges){
