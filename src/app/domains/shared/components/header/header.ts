@@ -13,7 +13,7 @@ export class Header {
 
   //input signal
 
-  //cart = input.required<ProductInterface[]>()
+  //cart = input.required<ProductInterface[]>()  //Ya no se necesita este input debido al servicio
 
   //inyeccion de servicios
 

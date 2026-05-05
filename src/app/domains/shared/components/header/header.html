@@ -78,7 +78,7 @@
     @for (product of cart(); track product.id) {
 
       <div class="flex gap-x-[30px] border-gray-300 border-solid border px-3 py-4 justify-around items-start rounded-md">
-        <img [src]="product.image" class="w-[100px] rounded-md" alt="">
+        <img [src]="product.images[0]" class="w-[100px] rounded-md" alt="">
         <div>
           <p class="text-[22px]">{{product.title}}</p>
           <p class="text-[15px] text-gray-500 font-normal">Cantidad <span class="text-gray-500">1</span></p>

@@ -3,6 +3,7 @@ import {Product} from './../../components/product/product';
 import { Header } from '../../../shared/components/header/header';
 import type { ProductInterface } from '../../../shared/models/product.model';
 import { Cart } from '../../../shared/services/cart';
+import { ProductService } from '../../../shared/services/product.service';
 
 @Component({
   selector: 'app-list',
@@ -17,64 +18,33 @@ export class List {
 
   products = signal<ProductInterface[]>([])
 
-  //cart = signal<ProductInterface[]>([])
-
-
-  constructor(){
-
-    const initProducts:ProductInterface[] =[
-      {
-        id: Date.now(),
-        title: 'Producto 1',
-        price: 100.00,
-        image: `https://picsum.photos/id/${this.aleatorio}/640/640`,
-        creationAt: new Date().toLocaleString()
-      },
-      {
-        id: Date.now(),
-        title: 'Producto 2',
-        price: 250.60,
-        image: `https://picsum.photos/id/${this.aleatorio}/640/640`,
-        creationAt: new Date().toLocaleString()
-      },
-      {
-        id: Date.now(),
-        title: 'Producto 3',
-        price: 450.90,
-        image: `https://picsum.photos/id/${this.aleatorio}/640/640`,
-        creationAt: new Date().toLocaleString()
-      },
-      {
-        id: Date.now(),
-        title: 'Producto 4',
-        price: 550.00,
-        image: `https://picsum.photos/id/${this.aleatorio}/640/640`,
-        creationAt: new Date().toLocaleString()
-      },
-      {
-        id: Date.now(),
-        title: 'Producto 5',
-        price: 1290.99,
-        image: `https://picsum.photos/id/${this.aleatorio}/640/640`,
-        creationAt: new Date().toLocaleString()
-
-      }
-    ]
-
-    //Actualizar signal de productos
-      this.products.set(initProducts)
-  }
-
-  //inyectar servicio
-
+  //inyectar servicio de carrito
     public cartService = inject(Cart)
 
+  //inyectar servicio que se conecta a la API
+    private productAPIService = inject(ProductService)
 
 
-  addToCart(product: ProductInterface){
+  ngOnInit(){
+    this.productAPIService.getProducts()
+    .subscribe({
+      next: (productsApi)=>{
 
-    this.cartService.addToCart(product)
+        this.products.set(productsApi)
 
+      },
+      error: (err) => {
+      console.error('Error al cargar productos', err)},
+
+    })
   }
+
+  //métodos
+
+    addToCart(product: ProductInterface){
+
+      this.cartService.addToCart(product)
+
+    }
 
 }
