@@ -4,5 +4,5 @@ export interface ProductInterface{
   title: string,
   price: number,
   images: string[],
-  creationAt: string
+  creationAt: string,
 }

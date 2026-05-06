@@ -35,7 +35,6 @@ export class List {
       },
       error: (err) => {
       console.error('Error al cargar productos', err)},
-
     })
   }
 
