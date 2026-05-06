@@ -3,6 +3,10 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
+    "paths": {
+      "@shared/*":["./src/app/domains/shared/*"]
+    },
+    "rootDir": "./src",
     "outDir": "./out-tsc/app",
     "types": []
   },
