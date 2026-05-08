@@ -5,7 +5,7 @@ import { ProductInterface } from '@shared/models/product.model';
 
 @Component({
   selector: 'app-product',
-  imports: [CurrencyPipe,DatePipe],
+  imports: [CurrencyPipe, DatePipe],
   templateUrl: './product.html',
   styleUrl: './product.css',
 })
