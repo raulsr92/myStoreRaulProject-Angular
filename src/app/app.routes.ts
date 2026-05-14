@@ -3,6 +3,7 @@ import { Routes } from '@angular/router';
 import { List } from './domains/products/pages/list/list';
 import { About } from './domains/info/pages/about/about';
 import { WaveAudio } from './domains/info/components/wave-audio/wave-audio';
+import { NotFound } from './domains/info/pages/not-found/not-found';
 
 export const routes: Routes = [
   {
@@ -13,5 +14,8 @@ export const routes: Routes = [
     path: 'about',
     component: About
   },
-
+  {
+    path: '**',
+    component: NotFound
+  },
 ];
