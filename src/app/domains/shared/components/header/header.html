@@ -1,7 +1,9 @@
+
+
 <nav class="bg-gray-200 mx-auto">
-  <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto py-4">
+  <div class="container flex flex-wrap items-center justify-between mx-auto py-4">
     <div class="flex items-center space-x-8">
-      <a href="https://flowbite.com/" class="flex items-center no-underline! ">
+      <a href="https://flowbite.com/" class="hidden! md:flex! items-center no-underline! ">
         <img
           src="https://flowbite.com/docs/images/logo.svg"
           class="h-6 mr-3"
@@ -11,7 +13,7 @@
           >Flowbite</span
         >
       </a>
-      <ul class="flex space-x-6 mb-0 ">
+      <ul class="hidden! md:flex! space-x-6 mb-0 ">
         <li>
           <a
             href="#"
@@ -35,26 +37,25 @@
           >
         </li>
       </ul>
+
+      <i class="block! md:hidden! fa-solid fa-bars text-[25px] "></i>
+    </div>
+
+    <div class="flex! md:hidden! ">
+      <a href="https://flowbite.com/" class="flex items-center no-underline! ">
+        <img
+          src="https://flowbite.com/docs/images/logo.svg"
+          class="h-6 mr-3"
+          alt="Flowbite Logo"
+        />
+        <span class="self-center text-xl font-semibold whitespace-nowrap"
+          >Flowbite</span
+        >
+      </a>
     </div>
 
     <div class="flex items-center relative">
       <button class="px-4" (click)="toogleSideMenu()">
-        <!--
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke-width="1.5"
-          stroke="currentColor"
-          class="w-6 h-6"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"
-          />
-        </svg>
-        -->
         <i class="fa-solid fa-cart-shopping text-[25px] text-blue-900"></i>
       </button>
       <span class="absolute right-[10px] top-[-12px] w-[20px] h-[20px] flex justify-center items-center bg-blue-700 text-white text-[14px] font-bold p-1 rounded-[50%]">{{cart().length}}</span>
@@ -65,26 +66,26 @@
 
 <!--Menu lateral del carrito-->
 
-<div [class.translate-x-full]="hideSideMenu()" class="flex flex-col gap-y-4 fixed shadow-lg top-0 right-0 bg-red z-40 w-[650px] font-medium h-screen pt-4 overflow-y-auto transition-transform bg-white" >
+<div [class.translate-x-full]="hideSideMenu()" class="w-full sm:w-[58%] xl:w-[45%] 2xl:w-[40%] flex flex-col gap-y-4 fixed shadow-lg top-0 right-0 bg-red z-40  font-medium h-screen pt-4 overflow-y-auto transition-transform bg-white" >
 
-  <div class="flex justify-between items-center pl-[30px]">
-    <p class="text-xl mb-0">Mi carrito de Compras (<span>{{cart().length}}</span>)</p>
+  <div class="flex justify-between items-center px-[30px]">
+    <p class="text-[16px] md:text-[18px] lg:text-xl mb-0">Mi carrito de Compras (<span>{{cart().length}}</span>)</p>
     <button class="flex items-center justify-center" (click)="toogleSideMenu()">
-      <i class="fa-solid fa-xmark text-2xl"></i>
+      <i class="fa-solid fa-xmark text-[16px] md:text-[18px] lg:text-xl"></i>
     </button>
   </div>
 
-  <div class="flex flex-col gap-y-8 pl-[30px]">
+  <div class="flex flex-col gap-y-8 px-[20px] xl:px-[30px]">
     @for (product of cart(); track product.id) {
 
-      <div class="flex gap-x-[30px] border-gray-300 border-solid border px-3 py-4 justify-around items-start rounded-md">
-        <img [src]="product.images[0]" class="w-[100px] rounded-md" alt="">
+      <div class="flex gap-x-[14px] lg:gap-x-[20px] xl:gap-x-[30px] border-gray-300 border-solid border px-3 py-4 justify-around items-start rounded-md">
+        <img [src]="product.images[0]" class="w-[55px] lg:w-[100px] rounded-md" alt="">
         <div>
-          <p class="text-[22px]">{{product.title}}</p>
-          <p class="text-[15px] text-gray-500 font-normal">Cantidad <span class="text-gray-500">1</span></p>
+          <p class="text-[14px]  xl:text-[18x] 2xl:text-[22px]">{{product.title}}</p>
+          <p class="text-[12px] lg:text-[15px] text-gray-500 font-normal">Cantidad <span class="text-gray-500">1</span></p>
         </div>
         <div class="flex flex-col">
-          <p class="text-[22px] text-red-800">S/ {{product.price}}</p>
+          <p class="text-[14px]  xl:text-[18x] 2xl:text-[22px] text-red-800">S/ {{product.price}}</p>
         </div>
         <button>
           <i class="fa-regular fa-trash-can  text-[20px] pt-2"></i>
