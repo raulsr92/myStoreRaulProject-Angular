@@ -5,6 +5,7 @@ import { About } from './domains/info/pages/about/about';
 import { WaveAudio } from './domains/info/components/wave-audio/wave-audio';
 import { NotFound } from './domains/info/pages/not-found/not-found';
 import { Layout } from '@shared/components/layout/layout';
+import { ProductDetail } from './domains/products/pages/product-detail/product-detail';
 
 export const routes: Routes = [
   {
@@ -18,6 +19,10 @@ export const routes: Routes = [
       {
         path: 'about',
         component: About
+      },
+      {
+        path: 'product/:id',
+        component: ProductDetail
       },
     ]
   },
