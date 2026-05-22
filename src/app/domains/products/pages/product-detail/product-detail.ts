@@ -23,7 +23,7 @@ export class ProductDetail {
 
   //Signal con indice de img a mostrar en galería
 
-    imgToShow = signal<number>(0)
+    imgToShow = signal<number>(-1)
 
   ngOnInit(){
     if(this.id()){
@@ -33,6 +33,13 @@ export class ProductDetail {
           console.log(productWithId)
 
           this.productDetail.set(productWithId)
+
+
+          if(this.productDetail()!.images?.length > 0){
+
+            this.imgToShow.set(0)
+
+          }
         }
       })
     }}
