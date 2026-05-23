@@ -26,19 +26,24 @@
 
   </div>
 
-  <div class="mt-5 w-full col-span-2">
-    <h2 class="text-sm title-font text-gray-500 tracking-widest">{{ productDetail()?.category?.name | uppercase }}</h2>
+  <div class="flex flex-col gap-y-2 mt-2 w-full col-span-2 pr-[40px] ">
+    <h2 class="text-[18px]! text-[#FA5400]! title-font tracking-widest font-bold!">{{ productDetail()?.category?.name | uppercase }}</h2>
     <h1 class="text-gray-900 text-3xl title-font font-medium mb-1">
       {{productDetail()?.title}}
     </h1>
-    <p class="leading-relaxed">
+    <p class="leading-relaxed text-justify text-gray-500">
       {{productDetail()?.description}}
     </p>
     <p class="title-font font-medium text-2xl text-gray-900 mt-5">{{ productDetail()?.price| currency:'S/ ' }}</p>
     <button
-      class="flex text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded"
+      class="flex items-center! rounded-full! justify-center text-[20px]! font-semibold text-white bg-black border-0 py-2 px-9 py-3 focus:outline-none hover:bg-gray-500! "
     >
       Add To Cart
     </button>
+    <button class="flex gap-x-4! items-center! mt-5! rounded-full! text-[20px]! font-semibold justify-center bg-white border-black border-1 py-2 px-9 py-3">
+      Favourites
+      <i class="fa-regular fa-heart"></i>
+    </button>
   </div>
+
 </div>
