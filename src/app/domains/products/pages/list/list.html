@@ -1,8 +1,17 @@
+
+<div class="flex list-none gap-x-[30px] bg-blue-900 text-white font-semibold pl-[60px] py-[25px] items-center">
+  @for (categoria of categories(); track categoria.id) {
+          <li class="text-[18px]">{{categoria.name}}</li>
+  }
+</div>
+
 <div class="container mx-auto">
 
   <section class="flex flex-col items-center gap-y-7.5 mt-[20px] mb-[60px]">
 
       <p class="text-blue-700 text-3xl font-bold" >Productos Principales </p>
+
+
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3  xl:grid-cols-4 gap-y-2.5 gap-x-3.5 ">
 
