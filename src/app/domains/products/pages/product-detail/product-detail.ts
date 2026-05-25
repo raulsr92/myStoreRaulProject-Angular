@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ProductInterface } from '@shared/models/product.model';
 import { ProductService } from '@shared/services/product.service';
 import { CurrencyPipe , UpperCasePipe} from '@angular/common';
+import { Cart } from '@shared/services/cart';
 
 @Component({
   selector: 'app-product-detail',
@@ -14,6 +15,7 @@ export class ProductDetail {
 
   //Inyección a servicio API
     private productAPIService = inject(ProductService)
+    private cartService = inject(Cart)
 
   //Input signal  que recibe parámetro de la ruta
      id = input<string>('')
@@ -24,6 +26,7 @@ export class ProductDetail {
   //Signal con indice de img a mostrar en galería
 
     imgToShow = signal<number>(-1)
+
 
   ngOnInit(){
     if(this.id()){
@@ -53,5 +56,17 @@ export class ProductDetail {
     this.imgToShow.set(index)
 
   }
+
+  // Método para agregar al carrito (ubicado en servicio) producto recibido por OUTPUT
+
+    addToCart(){
+
+      const producto = this.productDetail()
+
+      if (producto){
+        this.cartService.addToCart(producto)
+      }
+
+    }
 
 }

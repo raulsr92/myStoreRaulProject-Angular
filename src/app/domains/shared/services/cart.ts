@@ -23,6 +23,8 @@ export class Cart {
 
     addToCart(product: ProductInterface){
 
+      console.log("Agregando al cart un producto...")
+
       this.cart.update((carrito)=> [...carrito,product])
 
       console.log(this.cart())

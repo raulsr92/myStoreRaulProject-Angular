@@ -1,11 +1,12 @@
 
-<div class="w-[80%] grid grid-cols-5 justify-center m-auto mt-[40px]!">
+<div class="w-[80%] grid grid-cols-5 justify-center m-auto my-[40px]!">
+
   <div class=" flex flex-col col-span-3 px-[40px] justify-center items-center">
 
-    <div class="w-[80%] rounded border border-gray-200">
+    <div class="w-[80%] rounded overflow-hidden border border-gray-200">
       <img
         alt="ecommerce"
-        class="w-full object-cover object-center"
+        class="w-full object-cover overflow-hidden  object-center"
         [src]="productDetail()?.images?.[imgToShow()]"
       />
     </div>
@@ -16,7 +17,9 @@
         @for (imageProduct of productDetail()?.images; track imageProduct; let index = $index) {
           <img
             alt="ecommerce"
-            class="object-cover object-center rounded border-2 border-gray-200"
+            class="object-cover object-center rounded border-0 "
+            [class.outline-2] = "index == imgToShow()"
+            [class.outline-blue-700] = "index == imgToShow()"
             [src]="imageProduct "
             (click)="imageHandler(index)"
           />
@@ -37,6 +40,7 @@
     <p class="title-font font-medium text-2xl text-gray-900 mt-5">{{ productDetail()?.price| currency:'S/ ' }}</p>
     <button
       class="flex items-center! rounded-full! justify-center text-[20px]! font-semibold text-white bg-black border-0 py-2 px-9 py-3 focus:outline-none hover:bg-gray-500! "
+      (click)="addToCart()"
     >
       Add To Cart
     </button>
