@@ -1,4 +1,4 @@
-import { Component, signal, inject } from '@angular/core';
+import { Component, signal, inject, input, SimpleChanges } from '@angular/core';
 import { Header } from '../../../shared/components/header/header';
 import { Product } from '../../components/product/product';
 
@@ -7,10 +7,11 @@ import { Cart } from '@shared/services/cart';
 import { ProductInterface } from '@shared/models/product.model';
 import { CategoryService } from '@shared/services/category.service';
 import { Category } from '@shared/models/category.model';
+import { RouterLink } from "@angular/router";
 
 @Component({
   selector: 'app-list',
-  imports: [Product, Header],
+  imports: [Product, Header, RouterLink],
   templateUrl: './list.html',
   styleUrl: './list.css',
 })
@@ -22,6 +23,10 @@ export class List {
   products = signal<ProductInterface[]>([])
   categories = signal<Category[]>([])
 
+  //Input signal  que recibe query parámetro para filtrado de productos por categoría
+
+     categoryId = input<string>('')
+
   //inyectar servicio de carrito
     public cartService = inject(Cart)
   //inyectar servicio que se conecta a la API de Productos
@@ -29,11 +34,15 @@ export class List {
   //inyectar servicio que se conecta a la API de Categorías
     private categoryAPIService = inject(CategoryService)
 
-
   ngOnInit(){
-    this.getProducts()
+    //this.getProducts()
 
     this.getCategories()
+  }
+
+  ngOnChanges(changes: SimpleChanges){
+
+    this.getProducts()
 
   }
 
@@ -44,8 +53,9 @@ export class List {
 
     }
 
+
     private getProducts(){
-      this.productAPIService.getProducts()
+      this.productAPIService.getProducts(this.categoryId())
       .subscribe({
         next: (productsApi)=>{
           this.products.set(productsApi)
@@ -54,6 +64,7 @@ export class List {
         console.error('Error al cargar productos', err)},
       })
     }
+
 
     private getCategories(){
       this.categoryAPIService.getCategories()

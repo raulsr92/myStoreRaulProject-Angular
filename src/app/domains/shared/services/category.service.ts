@@ -9,11 +9,14 @@ export class CategoryService {
 
     private http = inject(HttpClient)
 
-    getCategories(){
+    // Endpoint para traer todas las categorías
 
-      console.log("Trayendo las categorías")
+      getCategories(){
 
-      return this.http.get<Category[]>('https://api.escuelajs.co/api/v1/categories')
-    }
+        console.log("Trayendo las categorías")
+
+        return this.http.get<Category[]>('https://api.escuelajs.co/api/v1/categories')
+      }
+
 
 }

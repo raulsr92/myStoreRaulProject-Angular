@@ -1,7 +1,15 @@
 
-<div class="flex list-none gap-x-[30px] bg-blue-900 text-white font-semibold pl-[60px] py-[25px] items-center">
+<div class="flex  list-none gap-x-[30px] bg-blue-900  font-semibold pl-[60px] py-[25px] items-center">
+        <li>
+          <a routerLink="/" class="text-[16px] no-underline! text-white">All</a>
+        </li>
   @for (categoria of categories(); track categoria.id) {
-          <li class="text-[18px]">{{categoria.name}}</li>
+          <li >
+            <a
+             routerLink="/"
+             [queryParams]="{categoryId: categoria.id}"
+             class="text-[16px] no-underline! text-white">{{categoria.name}}</a>
+          </li>
   }
 </div>
 
