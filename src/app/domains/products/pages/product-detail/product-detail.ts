@@ -11,7 +11,7 @@ import { Cart } from '@shared/services/cart';
   templateUrl: './product-detail.html',
   styleUrl: './product-detail.css',
 })
-export class ProductDetail {
+export default class ProductDetail {
 
   //Inyección a servicio API
     private productAPIService = inject(ProductService)

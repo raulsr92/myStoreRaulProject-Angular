@@ -15,7 +15,7 @@ import { RouterLink } from "@angular/router";
   templateUrl: './list.html',
   styleUrl: './list.css',
 })
-export class List {
+export default class List {
 
   aleatorio = Math.floor(Math.random()*200)
   img = `https://picsum.photos/id/${this.aleatorio}/640/640`

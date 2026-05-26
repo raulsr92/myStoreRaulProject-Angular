@@ -10,7 +10,7 @@ import { Header } from '@shared/components/header/header';
   templateUrl: './about.html',
   styleUrl: './about.css',
 })
-export class About {
+export default class About {
 
     duration = signal(1)
     message = signal('Hola')
